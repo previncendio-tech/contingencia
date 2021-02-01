@@ -1,14 +1,141 @@
 <!DOCTYPE html>
-<html>
-<title>Previncêndio</title>
+<html lang="pt-br">
+<head>
+
+<title>PrevincêndioTech</title>
+<meta name="description" content="Painel de dados de incêndios florestais de Minas Gerais - Previncêndio" />  
+<meta name="keywords" content="Queimadas, incêndios, Previncêndio, Unidades de Conservação" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
+  
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<body>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; cursor: pointer}
+.w3-third img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
 
-<iframe src = "https://script.google.com/macros/s/AKfycbxFGlBj0NNsKV3tyhC5q6r-jTMHtwZsWTuACPwx_pwSr3cognQ/exec" frameborder="0" width="100%" height="500px"></iframe>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Fechar</a> 
+  <a href="/covidmonitor/sobre.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Sobre</a> 
+ 
+  
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-black w3-xlarge w3-padding-16"> 
+  <span class="w3-left w3-padding"><b>P r e v i n c ê n d i o</b> T e c h</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-black" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+  
+  <!-- Photo grid -->
+  <div class="w3-row w3-grayscale-min">
+    <div class="w3-third">
+      <img src="/contingencia/img/situacao.png" style="width:100%" onclick= "window.location.href = '/contingencia/situacao.html';" alt="situação dos incêndios">
+   </div>
+    
+   <div class="w3-third">
+      <img src="/contingencia/img/estatisticas-mg.png" style="width:100%" onclick="window.location.href = '/contingencia/estatisticas-mg.html';" alt="estatísticas mg">
+      </div>
+    
+    <div class="w3-third">
+      <img src="/contingencia/img/ide-sisema.png" style="width:100%" onclick="window.location.href = 'http://idesisema.meioambiente.mg.gov.br/';" alt="ide sisema">
+    </div>
+    
+    <!-- new -->
+    
+    <div class="w3-third">
+      <img src="/contingencia/img/raios.png" style="width:100%" onclick= "window.location.href = 'http://www.inpe.br/webelat/homepage/#';" alt="mapa de raios">
+   </div>
+    
+   <div class="w3-third">
+      <img src="/contingencia/img/focos.png" style="width:100%" onclick="window.location.href = 'http://queimadas.dgi.inpe.br/queimadas/portal-static/estatisticas_estados/';" alt="focos ativos">
+      </div>
+    
+    <div class="w3-third">
+      <img src="/contingencia/img/bdqueimadas.png" style="width:100%" onclick="window.location.href = 'http://queimadas.dgi.inpe.br/queimadas/bdqueimadas';" alt="monitoramento de queimadas">
+    </div>
+    
+    <!-- new2 -->
+    
+    <div class="w3-third">
+      <img src="/contingencia/img/risco.png" style="width:100%" onclick= "window.location.href = 'http://queimadas.dgi.inpe.br/queimadas/portal/risco-de-fogo-meteorologia';" alt="risco">
+   </div>
+    
+   <div class="w3-third">
+      <img src="/contingencia/img/brigadistas.png" style="width:100%" onclick="window.location.href = '/contingencia/brigadistas.html';" alt="brigadistas">
+      </div>
+    
+    <div class="w3-third">
+      <img src="/contingencia/img/previncendio.png" style="width:100%" onclick="window.location.href = '/contingencia/previncendio.html';" alt="previncendio">
+    </div>
+    
+    
+    
+
+    </div>
+
+  
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  
+
+  <footer class="w3-container w3-padding-64 w3-center w3-black w3-xxxlarge">
+  <a href="http://bit.ly/covidmonitor_insta" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="http://bit.ly/covidmonitor_fb" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>&nbsp;&nbsp;
+  <a href="http://bit.ly/covidmonitor_twitter" target="_blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+  <p class="w3-medium"><b>P r e v i n c ê n d i o</b> T e c h</p>
+</footer>
+  
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+
+  
+
 
 </body>
 </html>
